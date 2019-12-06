@@ -1,0 +1,66 @@
+<html>
+<head>
+<title> regstartion</title>
+</head>
+<body bgcolor="lightGray" >
+<script>
+function validate(){
+  var userName = document.getElementById('user-name').value;
+var fatherName = document.getElementById('father-name').value;
+var motherName = document.getElementById('mother-name').value;
+  var rollCode = document.getElementById('roll-no').value;
+
+  var userRGEX = /^[A-Za-z]{1,30}$/;
+ var fatherRGEX = /^[A-Za-z]{1,30}$/;
+ var motherRGEX = /^[A-Za-z]{1,30}$/;
+ var rollRGEX = /^[0-9]{5,6}[A-Za-z]{1}[0-9]{4,5}$/;
+
+  var userResult = userRGEX.test(userName);
+  var fatherResult = fatherRGEX.test(fatherName);
+  var motherResult = userRGEX.test(motherName);
+  var rollResult = rollRGEX.test(rollCode);
+
+if(userResult == false)
+{
+alert('user name contain only characters');
+return false;
+}
+if(fatherResult == false&&fatherResult!="")
+{
+alert('father name contain only characters');
+return false;
+}
+if(motherResult == false&&motherResult!="")
+{
+alert('mother name contaion only characters');
+return false;
+}
+ 
+if(rollResult == false&&rollResult!="")
+{
+alert('roll number donot have special symblos and in proper order');
+return false;
+}
+  return true;
+}</script>
+<fieldset>
+<legend>Registration Page</legend>
+<center>
+<form onsubmit="validate()" action="reg1.php" method="post">
+<table>
+<tr><td>FirstName:</td><td><input type="textbox" id="user-name"placeholder="enter name" name="uname" /></td><td>LastName:</td><td><input type="textbox" name="ln" id="user-name"placeholder="enter name" /></td></tr>
+<tr><td>Fathername:</td><td><input type="textbox" id="father-name" placeholder=" enter Father name" name="fname"  /></td></tr>
+<tr><td>Mothername:</td><td><input type=" textbox" id="mother-name" placeholder=" enter Mother name"name="mname"  /></td></tr>
+<tr><td>Rollno:</td><td><input type="textbox" id ="roll-no" placeholder=" enter Roll number" name="roll"  /><td></tr>
+
+<tr><td>password:</td><td><input type="password" id="pwd" placeholder="enter password"name="pass"  /></td></tr>
+
+<tr><td>Gender:</td>
+ <td><input type="radio" name="gender" value="male" name="gender"> Male
+ <input type="radio" name="gender" value="female" name="gender"> Female</td></tr>
+<tr><td>Address:</td><td><textarea rows="4" cols="30"  placeholder="enter full-address" name="add"></textarea></td></tr>
+<tr><td><input type="submit" value="submit"/></td><td><input type="reset" value="cancel"/></td></tr></table>
+</form>
+</center></fieldset>
+</body>
+</html>
